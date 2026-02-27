@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fffff5;
+  --foreground: #1d2440;
+  --panel: #ffffff;
+  --card: #ffffff;
+  --accent-pink: #f893e1;
+  --accent-blue: #80caff;
+  --accent-purple: #a180ff;
+  --accent-yellow: #ffe878;
+  --accent-green: #91e5b3;
+  --ink-soft: #1d2440;
+  --ink-muted: #54607a;
+  --font-display: "Arial Black", "Avenir Next Condensed", "Trebuchet MS", sans-serif;
+  --font-body: "Avenir Next", "Trebuchet MS", "Verdana", sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-body);
+}
+
+body {
+  background: var(--background);
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+}
+
+.display-font {
+  font-family: var(--font-display);
+}
+
+.stage-bg {
+  position: relative;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(128, 202, 255, 0.18), transparent 34%),
+    radial-gradient(circle at 84% 16%, rgba(145, 229, 179, 0.16), transparent 34%),
+    linear-gradient(180deg, #f6f9ff 0%, #f2f6ff 38%, #f8fbff 100%);
+}
+
+.stage-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(30, 55, 88, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 55, 88, 0.05) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 90%);
+  pointer-events: none;
+}
+
+.panel-shell {
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(128, 202, 255, 0.45);
+  border-radius: 2rem;
+  background: var(--panel);
+  box-shadow: 0 16px 48px rgba(30, 55, 88, 0.14);
+}
+
+.card-pop {
+  border: 1px solid rgba(128, 202, 255, 0.5);
+  border-radius: 1.3rem;
+  background: var(--card);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.card-pop:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(55, 90, 130, 0.2);
+}
+
+.lab-input {
+  width: 100%;
+  border: 1px solid rgba(128, 202, 255, 0.55);
+  border-radius: 0.95rem;
+  background: #ffffff;
+  padding: 0.85rem 1rem;
+  color: #1d2440;
+}
+
+.lab-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(128, 202, 255, 0.22);
+  border-color: rgba(161, 128, 255, 0.9);
+}
+
+.lab-btn {
+  width: 100%;
+  border-radius: 999px;
+  padding: 0.8rem 1rem;
+  font-weight: 700;
+  color: #1d2440;
+  background: linear-gradient(90deg, var(--accent-yellow), var(--accent-green));
+  transition: transform 160ms ease;
+}
+
+.lab-btn:hover {
+  transform: translateY(-1px);
+}
+
+.fade-in-up {
+  animation: fadeInUp 500ms ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

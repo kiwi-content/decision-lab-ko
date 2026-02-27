@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
+
+@font-face {
+  font-family: "BMJUA";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ko-theme {
+  --font-display: "BMJUA", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-body: "Gowun Dodum", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-family: var(--font-body);
+}
+
+.ko-theme p,
+.ko-theme li,
+.ko-theme input,
+.ko-theme textarea,
+.ko-theme button {
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+.ko-theme .sparkle {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #fff0a8;
+  border: 1px solid #f3c965;
+  transform: rotate(45deg);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(243, 201, 101, 0.35);
+  animation: twinkle 1.8s ease-in-out infinite;
+}
+
+.ko-theme .ribbon-tag {
+  position: absolute;
+  top: -10px;
+  right: 18px;
+  border: 1px solid #f5a8c8;
+  background: #ffe4ef;
+  color: #b65386;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 6px 12px rgba(181, 83, 134, 0.15);
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    transform: rotate(45deg) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: rotate(45deg) scale(1.18);
+    opacity: 1;
+  }
+}
