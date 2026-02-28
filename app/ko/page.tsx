@@ -4,7 +4,7 @@ import Link from "next/link";
 const BASE_URL = "https://decisionlab.vercel.app";
 
 export const metadata: Metadata = {
-  title: "고민해우소 | 결정 느림보를 위한 속시원한 결정 대행 서비스",
+  title: "고민스탑 | 결정 느림보를 위한 속시원한 결정 대행 서비스",
   description: "결정 느림보들을 위해, 고민 길어지기 전에 대신 정리하고 방향을 잡아드립니다.",
   alternates: {
     canonical: `${BASE_URL}/ko`,
@@ -53,7 +53,7 @@ export default function KoreanHome() {
       <section className="panel-shell mx-auto max-w-6xl bg-[#fffff5] px-6 py-7 sm:px-10 sm:py-10">
         <header className="mb-10 flex flex-wrap items-center justify-between gap-4">
           <p className="rounded-full border border-[#80caff] bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#5884c8]">
-            고민해우소
+            고민스탑
           </p>
           <p className="rounded-full border border-[#ffd36b] bg-[#fff4cc] px-3 py-1 text-[11px] font-bold text-[#8a5b00]">
             KO PREVIEW 2026-02-27
