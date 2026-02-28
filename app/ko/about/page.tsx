@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "고민해우소 소개",
-  description: "고민해우소가 어떤 고민을 어떻게 도와주는지 소개합니다.",
+  title: "고민스탑 소개",
+  description: "고민스탑이 어떤 고민을 어떻게 도와주는지 소개합니다.",
   alternates: {
     canonical: "/ko/about",
     languages: {
@@ -16,7 +16,7 @@ export default function KoreanAboutPage() {
   return (
     <main className="stage-bg min-h-screen px-4 py-6 sm:px-10 sm:py-10">
       <section className="panel-shell mx-auto max-w-4xl bg-[#fffff5] px-6 py-10 sm:px-10">
-        <h1 className="display-font mb-6 text-4xl font-bold uppercase text-[#1d2440]">고민해우소 소개</h1>
+        <h1 className="display-font mb-6 text-4xl font-bold uppercase text-[#1d2440]">고민스탑 소개</h1>
         <p className="mb-2 text-[#5d92d8]">인생은 결정의 연속입니다.</p>
         <p className="mb-2 text-[#7d68cc]">사르트르가 말했다죠.</p>
         <p className="mb-6 text-[#4f5e7c]">
@@ -37,12 +37,12 @@ export default function KoreanAboutPage() {
         <p className="mb-6 text-[#2a9f76]">누군가 대신 결정을 해주면 좋겠다고 생각했습니다.</p>
 
         <p className="mb-2 text-[#1d2440]">
-          저와 같은 결정 느림보를 위해 &apos;고민해우소&apos;가 탄생했습니다.
+          저와 같은 결정 느림보를 위해 &apos;고민스탑&apos;가 탄생했습니다.
         </p>
         <p className="mb-8 text-[#c46a2b]">작은 결정이 인생을 한번에 바꿔놓을 수도 있음을 믿습니다.</p>
         <h2 className="mb-3 text-2xl font-semibold text-[#1d2440]">범위와 한계</h2>
         <p className="mb-8 text-[#4f5e7c]">
-          고민해우소는 참고용 판단 보조 도구이며, 법률·의료·재무·정신건강 분야의 전문 자문을 대체하지 않습니다.
+          고민스탑은 참고용 판단 보조 도구이며, 법률·의료·재무·정신건강 분야의 전문 자문을 대체하지 않습니다.
         </p>
         <p className="text-[#4f5e7c]">
           자세한 판단 로직은{" "}

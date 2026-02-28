@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "이용약관",
-  description: "고민해우소 서비스 이용 조건과 책임 범위를 안내합니다.",
+  description: "고민스탑 서비스 이용 조건과 책임 범위를 안내합니다.",
   alternates: {
     canonical: "/ko/terms",
     languages: {
@@ -19,7 +19,7 @@ export default function KoreanTermsPage() {
         <h1 className="display-font mb-6 text-4xl font-bold uppercase text-[#1d2440]">이용약관</h1>
         <p className="mb-6 text-sm text-[#6a7b9d]">최종 업데이트: 2026-02-27</p>
         <p className="mb-4 text-[#4f5e7c]">
-          본 약관은 고민해우소 웹 서비스 이용과 관련한 기본 권리, 의무, 책임사항을 규정합니다.
+          본 약관은 고민스탑 웹 서비스 이용과 관련한 기본 권리, 의무, 책임사항을 규정합니다.
         </p>
         <p className="mb-8 text-[#4f5e7c]">
           서비스를 이용하는 경우 아래 조항에 동의한 것으로 간주됩니다.
@@ -27,7 +27,7 @@ export default function KoreanTermsPage() {
 
         <h2 className="mb-3 text-2xl font-semibold text-[#1d2440]">1. 서비스 성격</h2>
         <ul className="mb-8 list-disc space-y-2 pl-6 text-[#4f5e7c]">
-          <li>고민해우소는 참고용 의사결정 보조 서비스입니다.</li>
+          <li>고민스탑은 참고용 의사결정 보조 서비스입니다.</li>
           <li>법률, 의료, 투자, 세무, 심리치료 자문을 제공하지 않습니다.</li>
           <li>최종 판단과 그 결과에 대한 책임은 사용자에게 있습니다.</li>
         </ul>

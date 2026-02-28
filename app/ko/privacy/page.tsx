@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "개인정보처리방침",
-  description: "고민해우소 서비스 이용 시 개인정보 처리 기준을 안내합니다.",
+  description: "고민스탑 서비스 이용 시 개인정보 처리 기준을 안내합니다.",
   alternates: {
     canonical: "/ko/privacy",
     languages: {
@@ -19,7 +19,7 @@ export default function KoreanPrivacyPage() {
         <h1 className="display-font mb-6 text-4xl font-bold uppercase text-[#1d2440]">개인정보처리방침</h1>
         <p className="mb-6 text-sm text-[#6a7b9d]">최종 업데이트: 2026-02-27</p>
         <p className="mb-4 text-[#4f5e7c]">
-          고민해우소는 개인정보를 수집하는 서비스가 아닙니다.
+          고민스탑은 개인정보를 수집하는 서비스가 아닙니다.
         </p>
         <p className="mb-8 text-[#4f5e7c]">
           회원가입, 로그인, 프로필 생성, 뉴스레터 구독, 마케팅 목적의 개인정보 수집 기능을 제공하지 않습니다.

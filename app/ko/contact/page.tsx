@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "문의하기",
-  description: "고민해우소 관련 문의, 제휴, 피드백을 보내주세요.",
+  description: "고민스탑 관련 문의, 제휴, 피드백을 보내주세요.",
   alternates: {
     canonical: "/ko/contact",
     languages: {
@@ -19,7 +19,7 @@ export default function KoreanContactPage() {
         <h1 className="display-font mb-6 text-4xl font-bold uppercase text-[#1d2440]">문의하기</h1>
         <p className="mb-6 text-sm text-[#6a7b9d]">최종 업데이트: 2026-02-27</p>
         <p className="mb-4 text-[#4f5e7c]">
-          고민해우소는 문의를 카테고리별로 분류해 처리합니다. 아래 가이드에 맞춰 보내주시면 응답 속도가
+          고민스탑은 문의를 카테고리별로 분류해 처리합니다. 아래 가이드에 맞춰 보내주시면 응답 속도가
           훨씬 빨라집니다.
         </p>
         <p className="mb-8 text-[#4f5e7c]">

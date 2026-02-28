@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "고민해우소 방법론",
-  description: "고민해우소를 200% 활용하는 법: 입력 팁, 답변 읽는 법, 실전 사용 가이드.",
+  title: "고민스탑 방법론",
+  description: "고민스탑을 200% 활용하는 법: 입력 팁, 답변 읽는 법, 실전 사용 가이드.",
   alternates: {
     canonical: "/ko/methodology",
     languages: {
@@ -19,7 +19,7 @@ export default function KoreanMethodologyPage() {
         <h1 className="display-font mb-6 text-4xl font-bold uppercase text-[#1d2440]">방법론</h1>
         <p className="mb-6 text-sm text-[#6a7b9d]">최종 업데이트: 2026-02-27</p>
         <p className="mb-4 text-[#4f5e7c]">
-          고민해우소는 인생을 대신 살아주는 서비스는 아니고, 머릿속에 엉킨 고민을 보기 좋게 정리해주는
+          고민스탑은 인생을 대신 살아주는 서비스는 아니고, 머릿속에 엉킨 고민을 보기 좋게 정리해주는
           &quot;결정 보조석&quot;에 가깝습니다.
         </p>
         <p className="mb-8 text-[#4f5e7c]">
@@ -54,7 +54,7 @@ export default function KoreanMethodologyPage() {
 
         <h2 className="mb-3 text-2xl font-semibold text-[#1d2440]">4) 이 경우엔 멈추고 전문가에게</h2>
         <p className="mb-8 text-[#4f5e7c]">
-          건강, 안전, 법적 책임, 큰 금전 리스크가 걸린 문제는 고민해우소를 참고용으로만 쓰고
+          건강, 안전, 법적 책임, 큰 금전 리스크가 걸린 문제는 고민스탑을 참고용으로만 쓰고
           반드시 관련 전문가와 최종 판단하세요.
         </p>
 

@@ -45,7 +45,7 @@ export default function TextMyExKo() {
       <section className="panel-shell mx-auto max-w-6xl px-6 py-8 sm:px-10 sm:py-10">
         <div className="sticky top-0 z-10 -mx-6 mb-8 flex items-center justify-between border-b border-[#80caff]/30 bg-[#fffff5]/90 px-6 py-3 backdrop-blur-sm sm:-mx-10 sm:px-10">
           <Link href="/ko" className="text-xs font-bold uppercase tracking-[0.2em] text-[#5d92d8] transition-colors hover:text-[#1d2440]">
-            ← 고민해우소
+            ← 고민스탑
           </Link>
           <button
             onClick={handleReset}
