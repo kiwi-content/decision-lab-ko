@@ -1,11 +1,2 @@
-import Tool from "./Tool";
-
-export const metadata = {
-  title: "Should I Quit My Job? | Career Decision Simulator",
-  description:
-    "Evaluate financial stability, stress level, and long-term growth before quitting your job.",
-};
-
-export default function Page() {
-  return <Tool />;
-}
+export { metadata } from "../ko/quit-my-job/page";
+export { default } from "../ko/quit-my-job/page";

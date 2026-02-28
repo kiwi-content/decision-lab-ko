@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
+import "./ko/ko.css";
 
 const naverSiteVerification = process.env.NAVER_SITE_VERIFICATION;
 
@@ -26,7 +27,7 @@ export default function RootLayout({
 
   return (
     <html lang="ko">
-      <body className="antialiased min-h-screen flex flex-col">
+      <body className="ko-theme antialiased min-h-screen flex flex-col">
         <div className="flex-1">{children}</div>
         <footer className="px-4 pb-6 pt-2 text-center text-xs text-[#6a89c4]/90 sm:px-10">
           Copyright © {currentYear} 고민스탑. All rights reserved.

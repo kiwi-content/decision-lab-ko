@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: "문의하기",
   description: "고민스탑 관련 문의, 제휴, 피드백을 보내주세요.",
   alternates: {
-    canonical: "/ko/contact",
+    canonical: "/contact",
     languages: {
-      "ko-KR": "/ko/contact",
+      "ko-KR": "/contact",
     },
   },
 };
@@ -36,7 +36,7 @@ export default function KoreanContactPage() {
 
         <h2 className="mb-3 text-2xl font-semibold text-[#1d2440]">빠른 처리용 템플릿</h2>
         <ul className="mb-8 list-disc space-y-2 pl-6 text-[#4f5e7c]">
-          <li>제목 예시: [오류제보] /ko/text-my-ex 결과가 생성되지 않음</li>
+          <li>제목 예시: [오류제보] /text-my-ex 결과가 생성되지 않음</li>
           <li>필수 정보: 접속 URL, 발생 시각, 사용 기기(모바일/PC), 브라우저 종류</li>
           <li>재현 단계: 무엇을 입력했고 어떤 버튼을 눌렀는지 순서대로 작성</li>
           <li>기대 결과 vs 실제 결과: 원래 기대한 동작과 실제 화면 차이를 명확히 작성</li>
@@ -54,7 +54,7 @@ export default function KoreanContactPage() {
           개인정보(주민번호, 계좌번호, 의료정보 등)는 메일 본문에 포함하지 마세요.
         </p>
 
-        <Link href="/ko" className="text-[#4f5e7c] underline decoration-[#80caff] underline-offset-2">
+        <Link href="/" className="text-[#4f5e7c] underline decoration-[#80caff] underline-offset-2">
           홈으로 돌아가기
         </Link>
       </section>

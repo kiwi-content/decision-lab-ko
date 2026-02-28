@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: "고민스탑 방법론",
   description: "고민스탑을 200% 활용하는 법: 입력 팁, 답변 읽는 법, 실전 사용 가이드.",
   alternates: {
-    canonical: "/ko/methodology",
+    canonical: "/methodology",
     languages: {
-      "ko-KR": "/ko/methodology",
+      "ko-KR": "/methodology",
     },
   },
 };
@@ -64,7 +64,7 @@ export default function KoreanMethodologyPage() {
           실제 후속 결과를 바탕으로 질문 방식과 답변 표현을 계속 다듬고 있습니다.
         </p>
 
-        <Link href="/ko" className="text-[#4f5e7c] underline decoration-[#80caff] underline-offset-2">
+        <Link href="/" className="text-[#4f5e7c] underline decoration-[#80caff] underline-offset-2">
           홈으로 돌아가기
         </Link>
       </section>

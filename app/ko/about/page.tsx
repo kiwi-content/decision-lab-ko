@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: "고민스탑 소개",
   description: "고민스탑이 어떤 고민을 어떻게 도와주는지 소개합니다.",
   alternates: {
-    canonical: "/ko/about",
+    canonical: "/about",
     languages: {
-      "ko-KR": "/ko/about",
+      "ko-KR": "/about",
     },
   },
 };
@@ -46,7 +46,7 @@ export default function KoreanAboutPage() {
         </p>
         <p className="text-[#4f5e7c]">
           자세한 판단 로직은{" "}
-          <Link href="/ko/methodology" className="underline decoration-[#80caff] underline-offset-2">
+          <Link href="/methodology" className="underline decoration-[#80caff] underline-offset-2">
             방법론
           </Link>
           에서 확인할 수 있습니다.

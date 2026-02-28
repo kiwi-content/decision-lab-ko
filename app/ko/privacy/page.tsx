@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: "개인정보처리방침",
   description: "고민스탑 서비스 이용 시 개인정보 처리 기준을 안내합니다.",
   alternates: {
-    canonical: "/ko/privacy",
+    canonical: "/privacy",
     languages: {
-      "ko-KR": "/ko/privacy",
+      "ko-KR": "/privacy",
     },
   },
 };
@@ -62,7 +62,7 @@ export default function KoreanPrivacyPage() {
           개인정보 처리 관련 문의 및 권리 행사 요청: <span className="font-semibold">decisionlab.platform@gmail.com</span>
         </p>
 
-        <Link href="/ko" className="text-[#4f5e7c] underline decoration-[#80caff] underline-offset-2">
+        <Link href="/" className="text-[#4f5e7c] underline decoration-[#80caff] underline-offset-2">
           홈으로 돌아가기
         </Link>
       </section>

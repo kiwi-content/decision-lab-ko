@@ -39,7 +39,7 @@ export default function BreakUpKo() {
     <main className="stage-bg min-h-screen px-4 py-6 sm:px-10 sm:py-10">
       <section className="panel-shell mx-auto max-w-6xl px-6 py-8 sm:px-10 sm:py-10">
         <div className="sticky top-0 z-10 -mx-6 mb-8 flex items-center justify-between border-b border-[#80caff]/30 bg-[#fffff5]/90 px-6 py-3 backdrop-blur-sm sm:-mx-10 sm:px-10">
-          <Link href="/ko" className="text-xs font-bold uppercase tracking-[0.2em] text-[#5d92d8] transition-colors hover:text-[#1d2440]">
+          <Link href="/" className="text-xs font-bold uppercase tracking-[0.2em] text-[#5d92d8] transition-colors hover:text-[#1d2440]">
             ← 고민스탑
           </Link>
           <button onClick={handleReset} className="rounded-full border border-[#80caff] bg-white px-4 py-2 text-xs font-semibold text-[#5d92d8] transition-colors hover:bg-[#f3f9ff]">
@@ -87,7 +87,7 @@ export default function BreakUpKo() {
 
           <p className="text-sm text-[#4a425d]">
             관련 도구:
-            <Link href="/ko/text-my-ex" className="ml-1 underline decoration-[#66c6ff] decoration-2 underline-offset-2">
+            <Link href="/text-my-ex" className="ml-1 underline decoration-[#66c6ff] decoration-2 underline-offset-2">
               전 애인에게 연락해도 될까?
             </Link>
           </p>

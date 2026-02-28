@@ -41,7 +41,7 @@ export default function ThrowAwayKo() {
   return (
     <div className="mx-auto mb-12 max-w-3xl fade-in-up">
       <div className="sticky top-0 z-10 -mx-4 mb-8 flex items-center justify-between border-b border-[#80caff]/30 bg-[#fffff5]/90 px-4 py-3 backdrop-blur-sm">
-        <Link href="/ko" className="text-xs font-bold uppercase tracking-[0.2em] text-[#5d92d8] transition-colors hover:text-[#1d2440]">
+        <Link href="/" className="text-xs font-bold uppercase tracking-[0.2em] text-[#5d92d8] transition-colors hover:text-[#1d2440]">
           ← 고민스탑
         </Link>
         <button onClick={handleReset} className="rounded-full border border-[#80caff] bg-white px-4 py-2 text-xs font-semibold text-[#5d92d8] transition-colors hover:bg-[#f3f9ff]">
@@ -99,7 +99,7 @@ export default function ThrowAwayKo() {
 
         <p className="text-sm text-[#4a425d]">
           관련 도구:
-          <Link href="/ko/move" className="ml-1 underline decoration-[#66c6ff] decoration-2 underline-offset-2">
+          <Link href="/move" className="ml-1 underline decoration-[#66c6ff] decoration-2 underline-offset-2">
             지금 이사하는 게 맞을까?
           </Link>
         </p>

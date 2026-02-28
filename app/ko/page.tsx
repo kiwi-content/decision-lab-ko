@@ -6,9 +6,9 @@ export const metadata: Metadata = {
   title: "고민스탑 | 결정 느림보를 위한 속시원한 결정 대행 서비스",
   description: "결정 느림보들을 위해, 고민 길어지기 전에 대신 정리하고 방향을 잡아드립니다.",
   alternates: {
-    canonical: "/ko",
+    canonical: "/",
     languages: {
-      "ko-KR": "/ko",
+      "ko-KR": "/",
     },
   },
 };
@@ -19,7 +19,7 @@ export default function KoreanHome() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "고민스탑",
-    url: `${siteUrl}/ko`,
+    url: `${siteUrl}`,
     inLanguage: "ko-KR",
     description: "결정 느림보를 위한 속시원한 결정 대행 서비스",
   };
@@ -72,13 +72,13 @@ export default function KoreanHome() {
             LIVE
           </p>
           <nav className="flex items-center gap-2 text-xs font-semibold text-[#6a89c4] sm:text-sm">
-            <Link href="/ko" className="rounded-full border border-[#80caff] bg-white px-4 py-2 hover:bg-[#f3f9ff]">
+            <Link href="/" className="rounded-full border border-[#80caff] bg-white px-4 py-2 hover:bg-[#f3f9ff]">
               홈
             </Link>
             <Link href="#simulators" className="rounded-full border border-[#80caff] bg-white px-4 py-2 hover:bg-[#f3f9ff]">
               시뮬레이터
             </Link>
-            <Link href="/ko/methodology" className="rounded-full border border-[#80caff] bg-white px-4 py-2 hover:bg-[#f3f9ff]">
+            <Link href="/methodology" className="rounded-full border border-[#80caff] bg-white px-4 py-2 hover:bg-[#f3f9ff]">
               방법론
             </Link>
           </nav>
@@ -102,19 +102,19 @@ export default function KoreanHome() {
         </div>
 
         <div id="simulators" className="grid gap-5 md:grid-cols-2 scroll-mt-20">
-          <Link href="/ko/text-my-ex" className="card-pop fade-in-up bg-[#f893e1]/30 p-6">
+          <Link href="/text-my-ex" className="card-pop fade-in-up bg-[#f893e1]/30 p-6">
             <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#7d68cc]">연애</p>
             <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">전 애인에게 연락해도 될까?</h2>
           </Link>
-          <Link href="/ko/quit-my-job" className="card-pop fade-in-up bg-[#80caff]/30 p-6">
+          <Link href="/quit-my-job" className="card-pop fade-in-up bg-[#80caff]/30 p-6">
             <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#5d92d8]">커리어</p>
             <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">퇴사해도 될까?</h2>
           </Link>
-          <Link href="/ko/break-up" className="card-pop fade-in-up bg-[#a180ff]/24 p-6">
+          <Link href="/break-up" className="card-pop fade-in-up bg-[#a180ff]/24 p-6">
             <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#6d59be]">연애</p>
             <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">이 관계, 끝내는 게 맞을까?</h2>
           </Link>
-          <Link href="/ko/move" className="card-pop fade-in-up bg-[#91e5b3]/28 p-6">
+          <Link href="/move" className="card-pop fade-in-up bg-[#91e5b3]/28 p-6">
             <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#2a9f76]">이사</p>
             <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">지금 이사하는 게 맞을까?</h2>
           </Link>
@@ -122,11 +122,11 @@ export default function KoreanHome() {
 
         <div className="mt-5">
           <div className="grid gap-5 md:grid-cols-2">
-            <Link href="/ko/throw-away" className="card-pop fade-in-up block bg-[#ffe878]/42 p-6">
+            <Link href="/throw-away" className="card-pop fade-in-up block bg-[#ffe878]/42 p-6">
               <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#b28b00]">정리</p>
               <h2 className="display-font text-4xl font-bold text-[#1d2440]">이거 버려도 될까?</h2>
             </Link>
-            <Link href="/ko/small-choices" className="card-pop fade-in-up block bg-[#ffc7a3]/40 p-6">
+            <Link href="/small-choices" className="card-pop fade-in-up block bg-[#ffc7a3]/40 p-6">
               <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#c46a2b]">일상 결정</p>
               <h2 className="display-font text-4xl font-bold text-[#1d2440]">오늘은 뭘 고를까?</h2>
             </Link>
@@ -156,11 +156,11 @@ export default function KoreanHome() {
 
         <footer className="mt-10 border-t border-[#80caff]/50 pt-5 text-xs text-[#6a89c4] sm:text-sm">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <Link href="/ko/about" className="underline decoration-[#80caff] underline-offset-2">소개</Link>
-            <Link href="/ko/methodology" className="underline decoration-[#80caff] underline-offset-2">방법론</Link>
-            <Link href="/ko/contact" className="underline decoration-[#80caff] underline-offset-2">문의</Link>
-            <Link href="/ko/privacy" className="underline decoration-[#80caff] underline-offset-2">개인정보처리방침</Link>
-            <Link href="/ko/terms" className="underline decoration-[#80caff] underline-offset-2">이용약관</Link>
+            <Link href="/about" className="underline decoration-[#80caff] underline-offset-2">소개</Link>
+            <Link href="/methodology" className="underline decoration-[#80caff] underline-offset-2">방법론</Link>
+            <Link href="/contact" className="underline decoration-[#80caff] underline-offset-2">문의</Link>
+            <Link href="/privacy" className="underline decoration-[#80caff] underline-offset-2">개인정보처리방침</Link>
+            <Link href="/terms" className="underline decoration-[#80caff] underline-offset-2">이용약관</Link>
           </div>
         </footer>
       </section>

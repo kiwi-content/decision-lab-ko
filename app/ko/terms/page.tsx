@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: "이용약관",
   description: "고민스탑 서비스 이용 조건과 책임 범위를 안내합니다.",
   alternates: {
-    canonical: "/ko/terms",
+    canonical: "/terms",
     languages: {
-      "ko-KR": "/ko/terms",
+      "ko-KR": "/terms",
     },
   },
 };
@@ -70,7 +70,7 @@ export default function KoreanTermsPage() {
           이용약관 관련 문의: <span className="font-semibold">decisionlab.platform@gmail.com</span>
         </p>
 
-        <Link href="/ko" className="text-[#4f5e7c] underline decoration-[#80caff] underline-offset-2">
+        <Link href="/" className="text-[#4f5e7c] underline decoration-[#80caff] underline-offset-2">
           홈으로 돌아가기
         </Link>
       </section>

@@ -1,11 +1,2 @@
-import Tool from "./Tool";
-
-export const metadata = {
-  title: "Should I Move? | Relocation Decision Simulator",
-  description:
-    "Compare opportunity, cost, and life impact before deciding to move.",
-};
-
-export default function Page() {
-  return <Tool />;
-}
+export { metadata } from "../ko/move/page";
+export { default } from "../ko/move/page";
