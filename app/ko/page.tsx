@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/ko`,
     languages: {
       "ko-KR": `${BASE_URL}/ko`,
-      "en-US": `${BASE_URL}/`,
     },
   },
 };

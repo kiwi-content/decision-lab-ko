@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/ko/quit-my-job`,
     languages: {
       "ko-KR": `${BASE_URL}/ko/quit-my-job`,
-      "en-US": `${BASE_URL}/quit-my-job`,
     },
   },
 };

@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/ko/privacy`,
     languages: {
       "ko-KR": `${BASE_URL}/ko/privacy`,
-      "en-US": `${BASE_URL}/privacy`,
     },
   },
 };
