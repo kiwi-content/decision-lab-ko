@@ -4,7 +4,7 @@ import Link from "next/link";
 const BASE_URL = "https://decisionlab.vercel.app";
 
 export const metadata: Metadata = {
-  title: "고민해우소 | 생활 의사결정 도구",
+  title: "고민해우소 | 결정 느림보를 위한 속시원한 결정 대행 서비스",
   description: "결정 느림보들을 위해, 고민 길어지기 전에 대신 정리하고 방향을 잡아드립니다.",
   alternates: {
     canonical: `${BASE_URL}/ko`,
