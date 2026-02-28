@@ -103,23 +103,22 @@ export async function POST(req: Request) {
       apiKey: process.env.OPENAI_API_KEY,
     });
 
-    const message = await client.messages.create({
-      model: "claude-3-5-sonnet-20241022",
-      max_tokens: 1024,
-      messages: [
+    const response = await client.responses.create({
+      model: process.env.OPENAI_MODEL || "gpt-4o-mini",
+      max_output_tokens: 1024,
+      input: [
+        {
+          role: "system",
+          content: [{ type: "input_text", text: systemPrompt }],
+        },
         {
           role: "user",
-          content: `${systemPrompt}
-
-상황:
-${story}
-          `,
+          content: [{ type: "input_text", text: `상황:\n${story}` }],
         },
       ],
-      system: systemPrompt,
     });
 
-    const result = message.content[0].type === "text" ? message.content[0].text : null;
+    const result = response.output_text?.trim() || null;
 
     if (!result) {
       return NextResponse.json({
