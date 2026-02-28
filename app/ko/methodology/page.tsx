@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const BASE_URL = "https://decisionlab.vercel.app";
-
 export const metadata: Metadata = {
   title: "고민해우소 방법론",
   description: "고민해우소를 200% 활용하는 법: 입력 팁, 답변 읽는 법, 실전 사용 가이드.",
   alternates: {
-    canonical: `${BASE_URL}/ko/methodology`,
+    canonical: "/ko/methodology",
     languages: {
-      "ko-KR": `${BASE_URL}/ko/methodology`,
+      "ko-KR": "/ko/methodology",
     },
   },
 };

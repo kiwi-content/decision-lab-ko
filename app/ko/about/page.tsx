@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const BASE_URL = "https://decisionlab.vercel.app";
-
 export const metadata: Metadata = {
   title: "고민해우소 소개",
   description: "고민해우소가 어떤 고민을 어떻게 도와주는지 소개합니다.",
   alternates: {
-    canonical: `${BASE_URL}/ko/about`,
+    canonical: "/ko/about",
     languages: {
-      "ko-KR": `${BASE_URL}/ko/about`,
+      "ko-KR": "/ko/about",
     },
   },
 };

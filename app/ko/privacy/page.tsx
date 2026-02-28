@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const BASE_URL = "https://decisionlab.vercel.app";
-
 export const metadata: Metadata = {
   title: "개인정보처리방침",
   description: "고민해우소 서비스 이용 시 개인정보 처리 기준을 안내합니다.",
   alternates: {
-    canonical: `${BASE_URL}/ko/privacy`,
+    canonical: "/ko/privacy",
     languages: {
-      "ko-KR": `${BASE_URL}/ko/privacy`,
+      "ko-KR": "/ko/privacy",
     },
   },
 };

@@ -1,20 +1,29 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-
-const BASE_URL = "https://decisionlab.vercel.app";
+import { getSiteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "고민스탑 | 결정 느림보를 위한 속시원한 결정 대행 서비스",
   description: "결정 느림보들을 위해, 고민 길어지기 전에 대신 정리하고 방향을 잡아드립니다.",
   alternates: {
-    canonical: `${BASE_URL}/ko`,
+    canonical: "/ko",
     languages: {
-      "ko-KR": `${BASE_URL}/ko`,
+      "ko-KR": "/ko",
     },
   },
 };
 
 export default function KoreanHome() {
+  const siteUrl = getSiteUrl();
+  const websiteStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "고민스탑",
+    url: `${siteUrl}/ko`,
+    inLanguage: "ko-KR",
+    description: "결정 느림보를 위한 속시원한 결정 대행 서비스",
+  };
+
   const 고민사연들 = [
     {
       title: "짜장면이냐 짬뽕이냐",
@@ -50,6 +59,10 @@ export default function KoreanHome() {
 
   return (
     <main className="stage-bg min-h-screen px-4 py-6 sm:px-10 sm:py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
+      />
       <section className="panel-shell mx-auto max-w-6xl bg-[#fffff5] px-6 py-7 sm:px-10 sm:py-10">
         <header className="mb-10 flex flex-wrap items-center justify-between gap-4">
           <p className="rounded-full border border-[#80caff] bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#5884c8]">
