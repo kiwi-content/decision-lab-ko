@@ -45,26 +45,26 @@ export default function QuitMyJob() {
       <section className="panel-shell mx-auto max-w-6xl px-6 py-8 sm:px-10 sm:py-10">
         <div className="sticky top-0 z-10 flex items-center justify-between bg-[#fffff5]/90 backdrop-blur-sm border-b border-[#80caff]/30 -mx-6 sm:-mx-10 px-6 sm:px-10 py-3 mb-8">
           <Link href="/" className="text-xs font-bold uppercase tracking-[0.2em] text-[#5d92d8] hover:text-[#1d2440] transition-colors">
-            ← Decision Lab
+            ← 고민스탑
           </Link>
           <button
             onClick={handleReset}
             className="rounded-full border border-[#80caff] bg-white px-4 py-2 text-xs font-semibold text-[#5d92d8] hover:bg-[#f3f9ff] transition-colors"
           >
-            Try Again
+            다시 하기
           </button>
         </div>
       <div className="mx-auto mb-12 max-w-3xl text-center fade-in-up">
-        <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-black/50">Career Lab</p>
-        <h1 className="display-font mb-4 text-4xl font-extrabold uppercase text-[#1a1627] sm:text-5xl">Should I Quit My Job?</h1>
+        <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-black/50">커리어 분석</p>
+        <h1 className="display-font mb-4 text-4xl font-extrabold uppercase text-[#1a1627] sm:text-5xl">퇴사해도 될까?</h1>
         <p className="text-base text-[#504760] sm:text-lg">
-          Evaluate risk, stability, and long-term impact.
+          위험, 안정성, 장기적 영향을 평가하세요.
         </p>
       </div>
 
       <div className="card-pop mx-auto max-w-3xl bg-white p-6 sm:p-7">
         <textarea
-          placeholder="How long have you been at this job? What's pushing you to leave? Do you have savings or another offer lined up?"
+          placeholder="이 직장에서 얼마나 일했나요? 떠나게 만드는 것이 뭔가요? 저축이나 다른 제안이 준비되어 있나요?"
           className="lab-input mb-4 h-28 resize-none"
           value={situation}
           onChange={(e) => setSituation(e.target.value)}
@@ -74,10 +74,10 @@ export default function QuitMyJob() {
           onClick={handleSubmit}
           className="lab-btn"
         >
-          Run Simulation
+          분석 시작
         </button>
 
-        {loading && <p className="mt-4 text-sm font-semibold text-[#4f4762]">Analyzing...</p>}
+        {loading && <p className="mt-4 text-sm font-semibold text-[#4f4762]">분석 중입니다...</p>}
 
         {result && !loading && (
           <div className="mt-6 rounded-2xl border border-black/10 bg-[#f7f4fc] p-5 text-left space-y-3">

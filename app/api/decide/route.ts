@@ -1,3 +1,4 @@
+import { OpenAI } from "openai";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -7,145 +8,123 @@ export async function POST(req: Request) {
     let systemPrompt = "";
 
     if (tool === "text-my-ex") {
-      systemPrompt = `
-You are a structured decision simulator for personal choices.
+      systemPrompt = `당신은 개인적인 선택에 대한 구조화된 의사결정 시뮬레이터입니다.
 
-Evaluate whether this person should text their ex based on their situation.
+이 사람이 자신의 상황에 따라 전 애인에게 연락해야 하는지 평가하세요.
 
-Consider: emotional vulnerability, intent behind texting, time elapsed since breakup, risk of reopening wounds, and whether contact serves a clear purpose.
+고려할 점: 감정적 취약성, 연락의 의도, 헤어진 이후 경과 시간, 상처를 다시 여는 위험성, 연락이 명확한 목적을 달성하는지 여부.
 
-Return EXACTLY 4 lines, nothing else:
-Line 1: Exactly one of: "Do not text." / "Wait." / "Text cautiously."
-Line 2: The single strongest reason for your decision, referencing their specific situation.
-Line 3: One concrete risk or caution they should be aware of.
-Line 4: One specific, actionable next step they should take today.
-`;
+정확히 4줄만 반환하세요 (다른 것은 없음):
+1줄: "하지 마세요." / "기다리세요." / "신중하게 하세요." 중 정확히 하나
+2줄: 당신의 결정을 위한 가장 강력한 이유 (그들의 구체적인 상황 언급)
+3줄: 주의해야 할 구체적인 위험이나 주의사항 1개
+4줄: 오늘 중에 취할 수 있는 구체적인 실행 단계 1개`;
     } else if (tool === "quit-my-job") {
-      systemPrompt = `
-You are a structured decision simulator for career decisions.
+      systemPrompt = `당신은 커리어 결정에 대한 구조화된 의사결정 시뮬레이터입니다.
 
-Evaluate whether this person should quit their job based on their situation.
+이 사람이 자신의 상황에 따라 직장을 그만두어야 하는지 평가하세요.
 
-Consider: financial runway, stress and burnout level, whether the root problem can be fixed internally, career growth trajectory, and downside risk if they leave.
+고려할 점: 재정적 여유, 스트레스와 번아웃 수준, 근본적인 문제를 내부적으로 해결할 수 있는지 여부, 커리어 성장 궤적, 떠날 경우의 하향 위험.
 
-Return EXACTLY 4 lines, nothing else:
-Line 1: Exactly one of: "Do not quit." / "Quit with a plan." / "Quit now."
-Line 2: The single strongest reason for your decision, referencing their specific situation.
-Line 3: One concrete risk or caution they should be aware of.
-Line 4: One specific, actionable next step they should take this week.
-`;
+정확히 4줄만 반환하세요 (다른 것은 없음):
+1줄: "하지 마세요." / "계획을 세우고 그만두세요." / "지금 그만두세요." 중 정확히 하나
+2줄: 당신의 결정을 위한 가장 강력한 이유 (그들의 구체적인 상황 언급)
+3줄: 주의해야 할 구체적인 위험이나 주의사항 1개
+4줄: 이번 주 중에 취할 수 있는 구체적인 실행 단계 1개`;
     } else if (tool === "break-up") {
-      systemPrompt = `
-You are a structured decision simulator for relationship decisions.
+      systemPrompt = `당신은 관계 결정에 대한 구조화된 의사결정 시뮬레이터입니다.
 
-Evaluate whether this person should end their relationship based on their situation.
+이 사람이 자신의 상황에 따라 관계를 끝내야 하는지 평가하세요.
 
-Consider: recurring conflict patterns, emotional safety, whether both people are growing or stuck, trust level, and long-term compatibility around values and goals.
+고려할 점: 반복적인 갈등 패턴, 정서적 안전성, 두 사람이 성장하고 있는지 또는 정체되어 있는지, 신뢰 수준, 가치관과 목표의 장기적 양립성.
 
-Return EXACTLY 4 lines, nothing else:
-Line 1: Exactly one of: "Stay and work on it." / "Take space first." / "End it."
-Line 2: The single strongest reason for your decision, referencing their specific situation.
-Line 3: One concrete risk or caution they should be aware of.
-Line 4: One specific, actionable next step they should take this week.
-`;
+정확히 4줄만 반환하세요 (다른 것은 없음):
+1줄: "노력해서 개선하세요." / "먼저 거리를 두세요." / "헤어지세요." 중 정확히 하나
+2줄: 당신의 결정을 위한 가장 강력한 이유 (그들의 구체적인 상황 언급)
+3줄: 주의해야 할 구체적인 위험이나 주의사항 1개
+4줄: 이번 주 중에 취할 수 있는 구체적인 실행 단계 1개`;
     } else if (tool === "move") {
-      systemPrompt = `
-You are a structured decision simulator for relocation decisions.
+      systemPrompt = `당신은 이사 결정에 대한 구조화된 의사결정 시뮬레이터입니다.
 
-Evaluate whether this person should move based on their situation.
+이 사람이 자신의 상황에 따라 이사해야 하는지 평가하세요.
 
-Consider: career or financial upside, quality of life change, cost of living difference, strength of current vs. new support network, and whether they are moving toward something or escaping something.
+고려할 점: 커리어 또는 재정적 상승 가능성, 삶의 질 변화, 생활비 차이, 현재 vs 새로운 지원 네트워크의 강도, 무언가를 향해 이사하는 것인지 아니면 무언가에서 도망치는 것인지 여부.
 
-Return EXACTLY 4 lines, nothing else:
-Line 1: Exactly one of: "Stay for now." / "Plan the move." / "Move."
-Line 2: The single strongest reason for your decision, referencing their specific situation.
-Line 3: One concrete risk or caution they should be aware of.
-Line 4: One specific, actionable next step they should take this month.
-`;
+정확히 4줄만 반환하세요 (다른 것은 없음):
+1줄: "당분간 머물러 있으세요." / "이사 계획을 세우세요." / "이사하세요." 중 정확히 하나
+2줄: 당신의 결정을 위한 가장 강력한 이유 (그들의 구체적인 상황 언급)
+3줄: 주의해야 할 구체적인 위험이나 주의사항 1개
+4줄: 이번 달 중에 취할 수 있는 구체적인 실행 단계 1개`;
     } else if (tool === "small-choices") {
-      systemPrompt = `
-You are a practical decision assistant for everyday small choices.
+      systemPrompt = `당신은 일상적인 작은 선택을 위한 실용적인 의사결정 보조자입니다.
 
-The user is deciding between daily options (food, route, schedule, spending, social plans, etc.).
-Use their constraints to make a crisp recommendation.
+사용자는 매일의 선택지 (음식, 경로, 일정, 지출, 사교 계획 등) 사이에서 선택하고 있습니다.
+그들의 제약 조건을 사용하여 명확한 추천을 해주세요.
 
-Decision principles:
-1) Prefer lower regret within 24 hours.
-2) Prefer lower cognitive load and time cost.
-3) Respect hard constraints (budget, health, deadlines, commitments).
-4) If options are similar, choose the reversible and simpler option.
-5) Avoid overthinking; the answer must be decisive.
+의사결정 원칙:
+1) 24시간 이내에 후회가 적은 선택을 선호하세요.
+2) 인지 부하와 시간 비용이 적은 선택을 선호하세요.
+3) 어려운 제약 조건 (예산, 건강, 마감일, 약속) 을 존중하세요.
+4) 옵션이 유사하면 가역적이고 더 간단한 옵션을 선택하세요.
+5) 과도하게 생각하지 마세요; 답변은 명확하고 결정적이어야 합니다.
 
-Return EXACTLY 4 lines in Korean, nothing else:
-Line 1: "결정: [추천 선택 한 줄]"
-Line 2: 현재 상황에서 그 선택이 유리한 핵심 이유 1개
-Line 3: 주의할 점 또는 부작용 1개
-Line 4: 지금 5분 안에 실행할 수 있는 다음 행동 1개
-`;
+정확히 4줄만 반환하세요:
+1줄: "추천: [추천 선택 한 줄]"
+2줄: 현재 상황에서 그 선택이 유리한 핵심 이유 1개
+3줄: 주의할 점 또는 부작용 1개
+4줄: 지금 5분 안에 실행할 수 있는 다음 행동 1개`;
     } else if (tool === "throw-away") {
-      systemPrompt = `
-You are a structured decision simulator for decluttering decisions.
+      systemPrompt = `당신은 정리 결정에 대한 구조화된 의사결정 시뮬레이터입니다.
 
-Evaluate whether this person should throw away this object based on their situation.
+이 사람이 자신의 상황에 따라 물건을 버려야 하는지 평가하세요.
 
-Consider: emotional attachment vs. practical utility, frequency of use in the past year, the space it occupies, and whether keeping it serves the present or just preserves the past.
+고려할 점: 정서적 애착 vs 실질적 유용성, 지난 1년 동안의 사용 빈도, 차지하는 공간, 물건을 보관하는 것이 현재를 위하는 것인지 아니면 과거를 보존하려는 것인지 여부.
 
-Return EXACTLY 4 lines, nothing else:
-Line 1: Exactly one of: "Keep it." / "Hold for 30 days." / "Throw it away."
-Line 2: The single strongest reason for your decision, referencing their specific situation.
-Line 3: One concrete risk or caution they should be aware of.
-Line 4: One specific, actionable next step they should take today.
-`;
+정확히 4줄만 반환하세요 (다른 것은 없음):
+1줄: "보관하세요." / "30일 동안 보류하세요." / "버리세요." 중 정확히 하나
+2줄: 당신의 결정을 위한 가장 강력한 이유 (그들의 구체적인 상황 언급)
+3줄: 주의해야 할 구체적인 위험이나 주의사항 1개
+4줄: 오늘 중에 취할 수 있는 구체적인 실행 단계 1개`;
     } else {
-      systemPrompt = `
-You are a structured decision simulator for decluttering decisions.
+      systemPrompt = `당신은 정리 결정에 대한 구조화된 의사결정 시뮬레이터입니다.
 
-Evaluate whether this person should throw away this object based on their situation.
+이 사람이 자신의 상황에 따라 물건을 버려야 하는지 평가하세요.
 
-Consider: emotional attachment vs. practical utility, frequency of use in the past year, the space it occupies, and whether keeping it serves the present or just preserves the past.
+고려할 점: 정서적 애착 vs 실질적 유용성, 지난 1년 동안의 사용 빈도, 차지하는 공간, 물건을 보관하는 것이 현재를 위하는 것인지 아니면 과거를 보존하려는 것인지 여부.
 
-Return EXACTLY 4 lines, nothing else:
-Line 1: Exactly one of: "Keep it." / "Hold for 30 days." / "Throw it away."
-Line 2: The single strongest reason for your decision, referencing their specific situation.
-Line 3: One concrete risk or caution they should be aware of.
-Line 4: One specific, actionable next step they should take today.
-`;
+정확히 4줄만 반환하세요 (다른 것은 없음):
+1줄: "보관하세요." / "30일 동안 보류하세요." / "버리세요." 중 정확히 하나
+2줄: 당신의 결정을 위한 가장 강력한 이유 (그들의 구체적인 상황 언급)
+3줄: 주의해야 할 구체적인 위험이나 주의사항 1개
+4줄: 오늘 중에 취할 수 있는 구체적인 실행 단계 1개`;
     }
 
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${process.env.GEMINI_API_KEY}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [
-                {
-                  text: `${systemPrompt}
+    const client = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
 
-Situation:
+    const message = await client.messages.create({
+      model: "claude-3-5-sonnet-20241022",
+      max_tokens: 1024,
+      messages: [
+        {
+          role: "user",
+          content: `${systemPrompt}
+
+상황:
 ${story}
-                  `,
-                },
-              ],
-            },
-          ],
-        }),
-      }
-    );
+          `,
+        },
+      ],
+      system: systemPrompt,
+    });
 
-    const data = await response.json();
-
-    const result =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const result = message.content[0].type === "text" ? message.content[0].text : null;
 
     if (!result) {
       return NextResponse.json({
         result:
-          "Wait.\nThere is not enough signal to make a confident call yet.\nActing while uncertain may increase regret.\nWrite your key facts and reassess in 24 hours.",
+          "기다리세요.\n신뢰할 수 있는 결정을 내릴 만큼 충분한 신호가 없습니다.\n불확실한 상태에서 행동하는 것은 후회를 증가시킬 수 있습니다.\n주요 사실을 적고 24시간 후에 다시 평가해보세요.",
       });
     }
 
