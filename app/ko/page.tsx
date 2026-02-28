@@ -135,7 +135,7 @@ export default function KoreanHome() {
 
         <section className="relative mt-8 rounded-3xl border border-[#80caff]/50 bg-white/80 p-5 sm:p-7">
           <span className="ribbon-tag">NEW STORIES</span>
-          <h2 className="display-font mb-1 text-4xl font-extrabold text-[#1d2440] sm:text-6xl">
+          <h2 className="mb-1 text-4xl font-extrabold text-[#1d2440] sm:text-6xl">
             그래! 결심했어
           </h2>
           <p className="mb-4 text-sm font-semibold text-[#5d92d8]">이런 사연들, 이렇게 대신 정리해드려요</p>
