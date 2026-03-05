@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useToolFunnel } from "@/lib/use-tool-funnel";
 
 export default function ThrowAwayKo() {
   const [object, setObject] = useState("");
   const [story, setStory] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
+  const { trackInputCompletion, trackResultReached, resetFunnelProgress } = useToolFunnel("throw-away");
 
   const handleSubmit = async () => {
     if (!object || !story) return;
@@ -23,6 +25,7 @@ export default function ThrowAwayKo() {
 
     const data = await res.json();
     setResult(data.result);
+    trackResultReached(data.result ?? "");
     setLoading(false);
   };
 
@@ -30,6 +33,7 @@ export default function ThrowAwayKo() {
     setObject("");
     setStory("");
     setResult("");
+    resetFunnelProgress();
   };
 
   const lines = result ? result.split("\n").filter((l) => l.trim() !== "") : [];
@@ -60,14 +64,22 @@ export default function ThrowAwayKo() {
           placeholder="물건 이름"
           className="lab-input mb-4"
           value={object}
-          onChange={(e) => setObject(e.target.value)}
+          onChange={(e) => {
+            const nextValue = e.target.value;
+            setObject(nextValue);
+            trackInputCompletion(`${nextValue} ${story}`);
+          }}
         />
 
         <textarea
           placeholder="마지막 사용 시점, 못 버리는 이유, 보관 중 불편한 점을 적어주세요."
           className="lab-input mb-4 h-28 resize-none"
           value={story}
-          onChange={(e) => setStory(e.target.value)}
+          onChange={(e) => {
+            const nextValue = e.target.value;
+            setStory(nextValue);
+            trackInputCompletion(`${object} ${nextValue}`);
+          }}
         />
 
         <button onClick={handleSubmit} className="lab-btn">결과 보기</button>

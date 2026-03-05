@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useToolFunnel } from "@/lib/use-tool-funnel";
 
 export default function QuitMyJobKo() {
   const [situation, setSituation] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
+  const { trackInputCompletion, trackResultReached, resetFunnelProgress } = useToolFunnel("quit-my-job");
 
   const handleSubmit = async () => {
     if (!situation) return;
@@ -21,12 +23,14 @@ export default function QuitMyJobKo() {
 
     const data = await res.json();
     setResult(data.result);
+    trackResultReached(data.result ?? "");
     setLoading(false);
   };
 
   const handleReset = () => {
     setSituation("");
     setResult("");
+    resetFunnelProgress();
   };
 
   const lines = result ? result.split("\n").filter((l) => l.trim() !== "") : [];
@@ -58,7 +62,11 @@ export default function QuitMyJobKo() {
             placeholder="퇴사를 고민하는 이유, 현재 재정 상황, 이직 계획(또는 준비 상태)을 적어주세요."
             className="lab-input mb-4 h-28 resize-none"
             value={situation}
-            onChange={(e) => setSituation(e.target.value)}
+            onChange={(e) => {
+              const nextValue = e.target.value;
+              setSituation(nextValue);
+              trackInputCompletion(nextValue);
+            }}
           />
           <button onClick={handleSubmit} className="lab-btn">결과 보기</button>
           {loading && <p className="mt-4 text-sm font-semibold text-[#4f4762]">분석 중...</p>}

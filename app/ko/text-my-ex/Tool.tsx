@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useToolFunnel } from "@/lib/use-tool-funnel";
 
 export default function TextMyExKo() {
   const [situation, setSituation] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
+  const { trackInputCompletion, trackResultReached, resetFunnelProgress } = useToolFunnel("text-my-ex");
 
   const handleSubmit = async () => {
     if (!situation) return;
@@ -26,12 +28,14 @@ export default function TextMyExKo() {
 
     const data = await res.json();
     setResult(data.result);
+    trackResultReached(data.result ?? "");
     setLoading(false);
   };
 
   const handleReset = () => {
     setSituation("");
     setResult("");
+    resetFunnelProgress();
   };
 
   const lines = result ? result.split("\n").filter((l) => l.trim() !== "") : [];
@@ -66,7 +70,11 @@ export default function TextMyExKo() {
             placeholder="언제 헤어졌는지, 왜 연락하고 싶은지, 지금 기대하는 결과가 무엇인지 적어주세요."
             className="lab-input mb-4 h-28 resize-none"
             value={situation}
-            onChange={(e) => setSituation(e.target.value)}
+            onChange={(e) => {
+              const nextValue = e.target.value;
+              setSituation(nextValue);
+              trackInputCompletion(nextValue);
+            }}
           />
 
           <button onClick={handleSubmit} className="lab-btn">

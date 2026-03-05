@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getSiteUrl } from "@/lib/site-url";
 import CardClickHint from "./components/CardClickHint";
+import HeroLottie from "./components/HeroLottie";
+import TrackedCardLink from "./components/TrackedCardLink";
 
 export const metadata: Metadata = {
   title: "고민스탑 | 결정 느림보를 위한 속시원한 결정 대행 서비스",
@@ -14,8 +16,20 @@ export const metadata: Metadata = {
   },
 };
 
+type DecisionCard = {
+  tool: string;
+  href: string;
+  category: string;
+  title: string;
+  summary: string;
+  eta: string;
+  bgClass: string;
+  categoryClass: string;
+};
+
 export default function KoreanHome() {
   const siteUrl = getSiteUrl();
+
   const websiteStructuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -24,6 +38,69 @@ export default function KoreanHome() {
     inLanguage: "ko-KR",
     description: "결정 느림보를 위한 속시원한 결정 대행 서비스",
   };
+
+  const decisionCards: DecisionCard[] = [
+    {
+      tool: "text-my-ex",
+      href: "/text-my-ex",
+      category: "연애",
+      title: "전 애인에게 연락해도 될까?",
+      summary: "감정 상태와 타이밍 리스크를 함께 보고 연락 여부를 정리해요.",
+      eta: "약 1분",
+      bgClass: "bg-[#f893e1]/30",
+      categoryClass: "text-[#7d68cc]",
+    },
+    {
+      tool: "quit-my-job",
+      href: "/quit-my-job",
+      category: "커리어",
+      title: "퇴사해도 될까?",
+      summary: "생활비 여력, 번아웃, 다음 기회 가능성을 기준으로 결론을 줘요.",
+      eta: "약 1분",
+      bgClass: "bg-[#80caff]/30",
+      categoryClass: "text-[#5d92d8]",
+    },
+    {
+      tool: "break-up",
+      href: "/break-up",
+      category: "연애",
+      title: "이 관계, 끝내는 게 맞을까?",
+      summary: "반복 갈등 패턴과 관계 안전성을 기준으로 방향을 제시해요.",
+      eta: "약 1분",
+      bgClass: "bg-[#a180ff]/24",
+      categoryClass: "text-[#6d59be]",
+    },
+    {
+      tool: "move",
+      href: "/move",
+      category: "이사",
+      title: "지금 이사하는 게 맞을까?",
+      summary: "비용, 통근, 생활 만족도 변화를 현실적으로 비교해요.",
+      eta: "약 1분",
+      bgClass: "bg-[#91e5b3]/28",
+      categoryClass: "text-[#2a9f76]",
+    },
+    {
+      tool: "throw-away",
+      href: "/throw-away",
+      category: "정리",
+      title: "이거 버려도 될까?",
+      summary: "사용 빈도와 보관 비용을 기준으로 보관/정리 결정을 도와요.",
+      eta: "약 1분",
+      bgClass: "bg-[#ffe878]/42",
+      categoryClass: "text-[#b28b00]",
+    },
+    {
+      tool: "small-choices",
+      href: "/small-choices",
+      category: "일상 결정",
+      title: "오늘은 뭘 고를까?",
+      summary: "예산, 시간, 컨디션까지 반영해 사소한 선택을 빠르게 끝내요.",
+      eta: "약 1분",
+      bgClass: "bg-[#ffc7a3]/40",
+      categoryClass: "text-[#c46a2b]",
+    },
+  ];
 
   const 고민사연들 = [
     {
@@ -85,69 +162,90 @@ export default function KoreanHome() {
           </nav>
         </header>
 
-        <div className="relative mb-8 fade-in-up">
+        <div className="relative mb-6 fade-in-up sm:mb-8">
           <span className="sparkle right-8 top-2 hidden sm:block" />
           <span className="sparkle left-52 top-14 hidden sm:block" />
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#5d92d8]">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#5d92d8] sm:mb-3">
             결정 느림보들을 위해
           </p>
           <div className="hero-heading-wrap">
-            <h1 className="display-font text-5xl font-extrabold uppercase leading-[0.92] text-[#1d2440] sm:text-7xl lg:text-8xl">
+            <h1 className="display-font text-[3.1rem] font-extrabold uppercase leading-[0.9] text-[#1d2440] sm:text-7xl lg:text-8xl">
               대신
               <br />
               결정해 드립니다.
             </h1>
-            <div className="hero-heading-lottie" aria-hidden>
-              <dotlottie-wc
-                src="https://lottie.host/ea94ebf0-7542-45a5-acd8-88dd141496c3/6Q3wBfB33c.lottie"
-                stateMachineId="StateMachine1"
-                autoplay
-                loop
-                style={{ width: "100%", height: "100%" }}
-              />
-            </div>
+            <HeroLottie className="hero-heading-lottie" />
           </div>
-          <p className="mt-6 max-w-3xl text-base text-[#4f5e7c] sm:text-xl">
+          <p className="mt-4 max-w-3xl text-base text-[#4f5e7c] sm:mt-6 sm:text-xl">
             &quot;짜장면이냐 짬뽕이냐&quot;, &quot;강릉여행이냐 부산여행이냐&quot;처럼 살다 보면 계속 생기는 고민들.
             무엇을 선택해야 할지 막막할 때, 대신 선택해 드려요.
           </p>
+          <div className="mt-5 flex flex-wrap items-center gap-3 sm:mt-6">
+            <Link href="#simulators" className="hero-primary-cta">
+              바로 시작하기
+            </Link>
+            <p className="hero-primary-sub">평균 1분 내로 결론과 다음 행동까지 정리해드립니다.</p>
+          </div>
         </div>
 
-        <div id="simulators" className="grid gap-5 md:grid-cols-2 scroll-mt-20">
-          <Link href="/text-my-ex" className="card-pop decision-card fade-in-up relative bg-[#f893e1]/30 p-6">
-            <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-11 w-11" />
-            <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#7d68cc]">연애</p>
-            <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">전 애인에게 연락해도 될까?</h2>
-          </Link>
-          <Link href="/quit-my-job" className="card-pop decision-card fade-in-up relative bg-[#80caff]/30 p-6">
-            <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-11 w-11" />
-            <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#5d92d8]">커리어</p>
-            <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">퇴사해도 될까?</h2>
-          </Link>
-          <Link href="/break-up" className="card-pop decision-card fade-in-up relative bg-[#a180ff]/24 p-6">
-            <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-11 w-11" />
-            <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#6d59be]">연애</p>
-            <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">이 관계, 끝내는 게 맞을까?</h2>
-          </Link>
-          <Link href="/move" className="card-pop decision-card fade-in-up relative bg-[#91e5b3]/28 p-6">
-            <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-11 w-11" />
-            <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#2a9f76]">이사</p>
-            <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">지금 이사하는 게 맞을까?</h2>
-          </Link>
+        <section className="trust-strip mb-7 grid gap-3 rounded-2xl border border-[#80caff]/45 bg-[#f7fbff] p-4 sm:grid-cols-3 sm:p-5">
+          <div className="trust-item">
+            <p className="trust-title">근거 중심 정리</p>
+            <p className="trust-copy">상황 요약, 핵심 이유, 주의점, 다음 행동까지 4줄로 답해요.</p>
+          </div>
+          <div className="trust-item">
+            <p className="trust-title">입력 내용 최소 보관</p>
+            <p className="trust-copy">입력 텍스트는 결과 생성 후 별도 데이터베이스에 저장하지 않습니다.</p>
+          </div>
+          <div className="trust-item">
+            <p className="trust-title">중요 결정은 보조 용도</p>
+            <p className="trust-copy">의학·법률·투자처럼 고위험 결정은 전문가 판단과 함께 사용하세요.</p>
+          </div>
+        </section>
+
+        <div id="simulators" className="grid gap-5 scroll-mt-20 md:grid-cols-2">
+          {decisionCards.slice(0, 4).map((card) => (
+            <TrackedCardLink
+              key={card.tool}
+              href={card.href}
+              tool={card.tool}
+              className={`card-pop decision-card fade-in-up relative ${card.bgClass} p-6`}
+            >
+              <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-10 w-10" />
+              <p className={`mb-2 text-xs font-bold uppercase tracking-wider ${card.categoryClass}`}>{card.category}</p>
+              <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">{card.title}</h2>
+              <p className="mt-2 pr-8 text-sm text-[#33486f]">{card.summary}</p>
+              <div className="decision-card-meta mt-4">
+                <span className="decision-card-time">{card.eta}</span>
+                <span className="decision-card-action">
+                  바로 진단 <span aria-hidden>→</span>
+                </span>
+              </div>
+            </TrackedCardLink>
+          ))}
         </div>
 
         <div className="mt-5">
           <div className="grid gap-5 md:grid-cols-2">
-            <Link href="/throw-away" className="card-pop decision-card fade-in-up relative block bg-[#ffe878]/42 p-6">
-              <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-11 w-11" />
-              <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#b28b00]">정리</p>
-              <h2 className="display-font text-4xl font-bold text-[#1d2440]">이거 버려도 될까?</h2>
-            </Link>
-            <Link href="/small-choices" className="card-pop decision-card fade-in-up relative block bg-[#ffc7a3]/40 p-6">
-              <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-11 w-11" />
-              <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#c46a2b]">일상 결정</p>
-              <h2 className="display-font text-4xl font-bold text-[#1d2440]">오늘은 뭘 고를까?</h2>
-            </Link>
+            {decisionCards.slice(4).map((card) => (
+              <TrackedCardLink
+                key={card.tool}
+                href={card.href}
+                tool={card.tool}
+                className={`card-pop decision-card fade-in-up relative block ${card.bgClass} p-6`}
+              >
+                <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-10 w-10" />
+                <p className={`mb-2 text-xs font-bold uppercase tracking-wider ${card.categoryClass}`}>{card.category}</p>
+                <h2 className="display-font text-4xl font-bold text-[#1d2440]">{card.title}</h2>
+                <p className="mt-2 pr-8 text-sm text-[#33486f]">{card.summary}</p>
+                <div className="decision-card-meta mt-4">
+                  <span className="decision-card-time">{card.eta}</span>
+                  <span className="decision-card-action">
+                    바로 진단 <span aria-hidden>→</span>
+                  </span>
+                </div>
+              </TrackedCardLink>
+            ))}
           </div>
         </div>
 

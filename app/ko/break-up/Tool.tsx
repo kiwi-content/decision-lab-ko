@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useToolFunnel } from "@/lib/use-tool-funnel";
 
 export default function BreakUpKo() {
   const [situation, setSituation] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
+  const { trackInputCompletion, trackResultReached, resetFunnelProgress } = useToolFunnel("break-up");
 
   const handleSubmit = async () => {
     if (!situation) return;
@@ -21,12 +23,14 @@ export default function BreakUpKo() {
 
     const data = await res.json();
     setResult(data.result);
+    trackResultReached(data.result ?? "");
     setLoading(false);
   };
 
   const handleReset = () => {
     setSituation("");
     setResult("");
+    resetFunnelProgress();
   };
 
   const lines = result ? result.split("\n").filter((l) => l.trim() !== "") : [];
@@ -58,7 +62,11 @@ export default function BreakUpKo() {
             placeholder="관계에서 반복되는 문제, 대화 시도 여부, 남고 싶은 이유/떠나고 싶은 이유를 적어주세요."
             className="lab-input mb-4 h-28 resize-none"
             value={situation}
-            onChange={(e) => setSituation(e.target.value)}
+            onChange={(e) => {
+              const nextValue = e.target.value;
+              setSituation(nextValue);
+              trackInputCompletion(nextValue);
+            }}
           />
           <button onClick={handleSubmit} className="lab-btn">결과 보기</button>
           {loading && <p className="mt-4 text-sm font-semibold text-[#4f4762]">분석 중...</p>}

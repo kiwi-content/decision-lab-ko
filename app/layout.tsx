@@ -32,7 +32,7 @@ export default function RootLayout({
         <Script
           src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.3/dist/dotlottie-wc.js"
           type="module"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <div className="flex-1">{children}</div>
         <footer className="px-4 pb-6 pt-2 text-center text-xs text-[#6a89c4]/90 sm:px-10">

@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useToolFunnel } from "@/lib/use-tool-funnel";
 
 export default function SmallChoicesToolKo() {
   const [situation, setSituation] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
+  const { trackInputCompletion, trackResultReached, resetFunnelProgress } = useToolFunnel("small-choices");
 
   const handleSubmit = async () => {
     if (!situation) return;
@@ -25,12 +27,14 @@ export default function SmallChoicesToolKo() {
 
     const data = await res.json();
     setResult(data.result);
+    trackResultReached(data.result ?? "");
     setLoading(false);
   };
 
   const handleReset = () => {
     setSituation("");
     setResult("");
+    resetFunnelProgress();
   };
 
   const lines = result ? result.split("\n").filter((l) => l.trim() !== "") : [];
@@ -62,7 +66,11 @@ export default function SmallChoicesToolKo() {
             placeholder="예: 짜장 vs 짬뽕. 점심시간 20분 남음, 오후 회의 2개, 속이 예민한 편."
             className="lab-input mb-4 h-28 resize-none"
             value={situation}
-            onChange={(e) => setSituation(e.target.value)}
+            onChange={(e) => {
+              const nextValue = e.target.value;
+              setSituation(nextValue);
+              trackInputCompletion(nextValue);
+            }}
           />
           <button onClick={handleSubmit} className="lab-btn">결과 보기</button>
           {loading && <p className="mt-4 text-sm font-semibold text-[#4f4762]">분석 중...</p>}
