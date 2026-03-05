@@ -190,16 +190,16 @@ export default function KoreanHome() {
 
         <section className="trust-strip mb-7 grid gap-3 rounded-2xl border border-[#80caff]/45 bg-[#f7fbff] p-4 sm:grid-cols-3 sm:p-5">
           <div className="trust-item">
-            <p className="trust-title">근거 중심 정리</p>
-            <p className="trust-copy">상황 요약, 핵심 이유, 주의점, 다음 행동까지 4줄로 답해요.</p>
+            <p className="trust-title">4줄 요약</p>
+            <p className="trust-copy">핵심만 4줄.</p>
           </div>
           <div className="trust-item">
-            <p className="trust-title">입력 내용 최소 보관</p>
-            <p className="trust-copy">입력 텍스트는 결과 생성 후 별도 데이터베이스에 저장하지 않습니다.</p>
+            <p className="trust-title">입력은 가볍게</p>
+            <p className="trust-copy">입력 내용 저장 안 해요.</p>
           </div>
           <div className="trust-item">
-            <p className="trust-title">중요 결정은 보조 용도</p>
-            <p className="trust-copy">의학·법률·투자처럼 고위험 결정은 전문가 판단과 함께 사용하세요.</p>
+            <p className="trust-title">큰 결정은 체크</p>
+            <p className="trust-copy">의학·법률·투자는 전문가와.</p>
           </div>
         </section>
 
