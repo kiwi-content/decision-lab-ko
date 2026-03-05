@@ -146,10 +146,7 @@ export default function KoreanHome() {
           <p className="rounded-full border border-[#80caff] bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#5884c8]">
             고민스탑
           </p>
-          <p className="rounded-full border border-[#ffd36b] bg-[#fff4cc] px-3 py-1 text-[11px] font-bold text-[#8a5b00]">
-            LIVE
-          </p>
-          <nav className="flex items-center gap-2 text-xs font-semibold text-[#6a89c4] sm:text-sm">
+          <nav className="hidden items-center gap-2 text-xs font-semibold text-[#6a89c4] sm:flex sm:text-sm">
             <Link href="/" className="rounded-full border border-[#80caff] bg-white px-4 py-2 hover:bg-[#f3f9ff]">
               홈
             </Link>
@@ -188,17 +185,6 @@ export default function KoreanHome() {
             <p className="hero-primary-sub">평균 1분 내로 결론과 다음 행동까지 정리해드립니다.</p>
           </div>
         </div>
-
-        <section className="trust-strip mb-7 grid gap-3 rounded-2xl border border-[#80caff]/45 bg-[#f7fbff] p-4 sm:grid-cols-2 sm:p-5">
-          <div className="trust-item">
-            <p className="trust-title">4줄 요약</p>
-            <p className="trust-copy">핵심만 4줄.</p>
-          </div>
-          <div className="trust-item">
-            <p className="trust-title">입력은 가볍게</p>
-            <p className="trust-copy">입력 내용 저장 안 해요.</p>
-          </div>
-        </section>
 
         <div id="simulators" className="grid gap-5 scroll-mt-20 md:grid-cols-2">
           {decisionCards.slice(0, 4).map((card) => (
