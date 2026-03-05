@@ -6,6 +6,7 @@ type DotLottieWCAttributes = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTML
   loop?: boolean;
   speed?: number;
   mode?: string;
+  stateMachineId?: string;
   style?: CSSProperties;
 };
 

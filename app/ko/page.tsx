@@ -91,11 +91,20 @@ export default function KoreanHome() {
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#5d92d8]">
             결정 느림보들을 위해
           </p>
-          <h1 className="display-font text-5xl font-extrabold uppercase leading-[0.92] text-[#1d2440] sm:text-7xl lg:text-8xl">
-            대신
-            <br />
-            결정해 드립니다.
-          </h1>
+          <div className="hero-heading-wrap">
+            <h1 className="display-font text-5xl font-extrabold uppercase leading-[0.92] text-[#1d2440] sm:text-7xl lg:text-8xl">
+              대신
+              <br />
+              결정해 드립니다.
+            </h1>
+            <div className="hero-heading-lottie" aria-hidden>
+              <dotlottie-wc
+                src="https://lottie.host/ea94ebf0-7542-45a5-acd8-88dd141496c3/6Q3wBfB33c.lottie"
+                stateMachineId="StateMachine1"
+                style={{ width: "100%", height: "100%" }}
+              />
+            </div>
+          </div>
           <p className="mt-6 max-w-3xl text-base text-[#4f5e7c] sm:text-xl">
             &quot;짜장면이냐 짬뽕이냐&quot;, &quot;강릉여행이냐 부산여행이냐&quot;처럼 살다 보면 계속 생기는 고민들.
             무엇을 선택해야 할지 막막할 때, 대신 선택해 드려요.
