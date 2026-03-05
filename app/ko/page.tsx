@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getSiteUrl } from "@/lib/site-url";
+import CardClickHint from "./components/CardClickHint";
 
 export const metadata: Metadata = {
   title: "고민스탑 | 결정 느림보를 위한 속시원한 결정 대행 서비스",
@@ -102,19 +103,23 @@ export default function KoreanHome() {
         </div>
 
         <div id="simulators" className="grid gap-5 md:grid-cols-2 scroll-mt-20">
-          <Link href="/text-my-ex" className="card-pop fade-in-up bg-[#f893e1]/30 p-6">
+          <Link href="/text-my-ex" className="card-pop decision-card fade-in-up relative bg-[#f893e1]/30 p-6">
+            <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-11 w-11" />
             <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#7d68cc]">연애</p>
             <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">전 애인에게 연락해도 될까?</h2>
           </Link>
-          <Link href="/quit-my-job" className="card-pop fade-in-up bg-[#80caff]/30 p-6">
+          <Link href="/quit-my-job" className="card-pop decision-card fade-in-up relative bg-[#80caff]/30 p-6">
+            <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-11 w-11" />
             <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#5d92d8]">커리어</p>
             <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">퇴사해도 될까?</h2>
           </Link>
-          <Link href="/break-up" className="card-pop fade-in-up bg-[#a180ff]/24 p-6">
+          <Link href="/break-up" className="card-pop decision-card fade-in-up relative bg-[#a180ff]/24 p-6">
+            <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-11 w-11" />
             <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#6d59be]">연애</p>
             <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">이 관계, 끝내는 게 맞을까?</h2>
           </Link>
-          <Link href="/move" className="card-pop fade-in-up bg-[#91e5b3]/28 p-6">
+          <Link href="/move" className="card-pop decision-card fade-in-up relative bg-[#91e5b3]/28 p-6">
+            <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-11 w-11" />
             <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#2a9f76]">이사</p>
             <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">지금 이사하는 게 맞을까?</h2>
           </Link>
@@ -122,11 +127,13 @@ export default function KoreanHome() {
 
         <div className="mt-5">
           <div className="grid gap-5 md:grid-cols-2">
-            <Link href="/throw-away" className="card-pop fade-in-up block bg-[#ffe878]/42 p-6">
+            <Link href="/throw-away" className="card-pop decision-card fade-in-up relative block bg-[#ffe878]/42 p-6">
+              <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-11 w-11" />
               <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#b28b00]">정리</p>
               <h2 className="display-font text-4xl font-bold text-[#1d2440]">이거 버려도 될까?</h2>
             </Link>
-            <Link href="/small-choices" className="card-pop fade-in-up block bg-[#ffc7a3]/40 p-6">
+            <Link href="/small-choices" className="card-pop decision-card fade-in-up relative block bg-[#ffc7a3]/40 p-6">
+              <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-11 w-11" />
               <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#c46a2b]">일상 결정</p>
               <h2 className="display-font text-4xl font-bold text-[#1d2440]">오늘은 뭘 고를까?</h2>
             </Link>
