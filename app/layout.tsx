@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 import "./ko/ko.css";
@@ -28,6 +29,11 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="ko-theme antialiased min-h-screen flex flex-col">
+        <Script
+          src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.3/dist/dotlottie-wc.js"
+          type="module"
+          strategy="afterInteractive"
+        />
         <div className="flex-1">{children}</div>
         <footer className="px-4 pb-6 pt-2 text-center text-xs text-[#6a89c4]/90 sm:px-10">
           Copyright © {currentYear} 고민스탑. All rights reserved.

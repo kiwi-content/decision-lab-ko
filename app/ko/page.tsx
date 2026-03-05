@@ -101,6 +101,8 @@ export default function KoreanHome() {
               <dotlottie-wc
                 src="https://lottie.host/ea94ebf0-7542-45a5-acd8-88dd141496c3/6Q3wBfB33c.lottie"
                 stateMachineId="StateMachine1"
+                autoplay
+                loop
                 style={{ width: "100%", height: "100%" }}
               />
             </div>
