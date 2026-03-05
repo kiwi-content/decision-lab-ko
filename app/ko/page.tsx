@@ -45,7 +45,7 @@ export default function KoreanHome() {
       href: "/text-my-ex",
       category: "연애",
       title: "전 애인에게 연락해도 될까?",
-      summary: "감정 상태와 타이밍 리스크를 함께 보고 연락 여부를 정리해요.",
+      summary: "미련일까 가능성일까 고민된다면!",
       eta: "약 1분",
       bgClass: "bg-[#f893e1]/30",
       categoryClass: "text-[#7d68cc]",
@@ -55,7 +55,7 @@ export default function KoreanHome() {
       href: "/quit-my-job",
       category: "커리어",
       title: "퇴사해도 될까?",
-      summary: "생활비 여력, 번아웃, 다음 기회 가능성을 기준으로 결론을 줘요.",
+      summary: "버틸까 떠날까 흔들린다면!",
       eta: "약 1분",
       bgClass: "bg-[#80caff]/30",
       categoryClass: "text-[#5d92d8]",
@@ -65,7 +65,7 @@ export default function KoreanHome() {
       href: "/break-up",
       category: "연애",
       title: "이 관계, 끝내는 게 맞을까?",
-      summary: "반복 갈등 패턴과 관계 안전성을 기준으로 방향을 제시해요.",
+      summary: "정 때문에 버티는 중이라면!",
       eta: "약 1분",
       bgClass: "bg-[#a180ff]/24",
       categoryClass: "text-[#6d59be]",
@@ -75,7 +75,7 @@ export default function KoreanHome() {
       href: "/move",
       category: "이사",
       title: "지금 이사하는 게 맞을까?",
-      summary: "비용, 통근, 생활 만족도 변화를 현실적으로 비교해요.",
+      summary: "옮길까 말까 계산이 복잡하다면!",
       eta: "약 1분",
       bgClass: "bg-[#91e5b3]/28",
       categoryClass: "text-[#2a9f76]",
@@ -85,7 +85,7 @@ export default function KoreanHome() {
       href: "/throw-away",
       category: "정리",
       title: "이거 버려도 될까?",
-      summary: "사용 빈도와 보관 비용을 기준으로 보관/정리 결정을 도와요.",
+      summary: "아깝지만 안 쓰는 물건이라면!",
       eta: "약 1분",
       bgClass: "bg-[#ffe878]/42",
       categoryClass: "text-[#b28b00]",
@@ -95,7 +95,7 @@ export default function KoreanHome() {
       href: "/small-choices",
       category: "일상 결정",
       title: "오늘은 뭘 고를까?",
-      summary: "예산, 시간, 컨디션까지 반영해 사소한 선택을 빠르게 끝내요.",
+      summary: "사소한 선택도 매번 막힌다면!",
       eta: "약 1분",
       bgClass: "bg-[#ffc7a3]/40",
       categoryClass: "text-[#c46a2b]",
@@ -177,7 +177,8 @@ export default function KoreanHome() {
             <HeroLottie className="hero-heading-lottie" />
           </div>
           <p className="mt-4 max-w-3xl text-base text-[#4f5e7c] sm:mt-6 sm:text-xl">
-            &quot;짜장면이냐 짬뽕이냐&quot;, &quot;강릉여행이냐 부산여행이냐&quot;처럼 살다 보면 계속 생기는 고민들.
+            &quot;짜장면이냐 짬뽕이냐&quot;, &quot;강릉여행이냐 부산여행이냐&quot; 인생은 선택의 연속
+            <br />
             무엇을 선택해야 할지 막막할 때, 대신 선택해 드려요.
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-3 sm:mt-6">
@@ -188,7 +189,7 @@ export default function KoreanHome() {
           </div>
         </div>
 
-        <section className="trust-strip mb-7 grid gap-3 rounded-2xl border border-[#80caff]/45 bg-[#f7fbff] p-4 sm:grid-cols-3 sm:p-5">
+        <section className="trust-strip mb-7 grid gap-3 rounded-2xl border border-[#80caff]/45 bg-[#f7fbff] p-4 sm:grid-cols-2 sm:p-5">
           <div className="trust-item">
             <p className="trust-title">4줄 요약</p>
             <p className="trust-copy">핵심만 4줄.</p>
@@ -196,10 +197,6 @@ export default function KoreanHome() {
           <div className="trust-item">
             <p className="trust-title">입력은 가볍게</p>
             <p className="trust-copy">입력 내용 저장 안 해요.</p>
-          </div>
-          <div className="trust-item">
-            <p className="trust-title">큰 결정은 체크</p>
-            <p className="trust-copy">의학·법률·투자는 전문가와.</p>
           </div>
         </section>
 
