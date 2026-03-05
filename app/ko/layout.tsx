@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./ko.css";
 
 export const metadata: Metadata = {
@@ -15,5 +16,14 @@ export const metadata: Metadata = {
 };
 
 export default function KoreanLayout({ children }: { children: React.ReactNode }) {
-  return <div className="ko-theme">{children}</div>;
+  return (
+    <div className="ko-theme">
+      <Script
+        src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.3/dist/dotlottie-wc.js"
+        type="module"
+        strategy="afterInteractive"
+      />
+      {children}
+    </div>
+  );
 }

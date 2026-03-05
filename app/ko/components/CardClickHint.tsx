@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Lottie from "lottie-react";
-import clickHintAnimation from "@/public/lottie/card-click-hint.json";
+
+const CARD_HINT_DOTLOTTIE_SRC =
+  "https://lottie.host/90731dcf-7506-4eb8-9c4c-151b5c8189f2/ZWqcbZIB4t.lottie";
 
 type CardClickHintProps = {
   className?: string;
@@ -37,13 +38,13 @@ export default function CardClickHint({ className }: CardClickHintProps) {
   }
 
   return (
-    <Lottie
-      animationData={clickHintAnimation}
-      autoplay
-      loop
-      aria-hidden
-      className={className}
-      rendererSettings={{ preserveAspectRatio: "xMidYMid meet" }}
-    />
+    <span className={className} aria-hidden>
+      <dotlottie-wc
+        src={CARD_HINT_DOTLOTTIE_SRC}
+        autoplay
+        loop
+        style={{ width: "100%", height: "100%" }}
+      />
+    </span>
   );
 }
