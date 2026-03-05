@@ -88,82 +88,28 @@
 }
 
 .ko-theme .decision-card .decision-card-hint {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  border: 1px solid rgba(93, 146, 216, 0.55);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 6px 12px rgba(93, 146, 216, 0.18);
-  padding: 0.25rem 0.5rem;
-  opacity: 0.96;
-  transform: translateY(0);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  opacity: 0.85;
+  transform: scale(1);
+  transition: transform 0.18s ease, opacity 0.18s ease;
 }
 
 .ko-theme .decision-card:hover .decision-card-hint {
-  box-shadow: 0 8px 16px rgba(93, 146, 216, 0.25);
   opacity: 1;
-  transform: translateY(-1px);
+  transform: scale(1.07);
 }
 
-.ko-theme .decision-card-hint-label {
-  color: #4b6f9f;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.ko-theme .decision-card-hint-icon {
-  position: relative;
+.ko-theme .decision-card-hint-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-}
-
-.ko-theme .decision-card-hint-arrow {
+  border: 1px solid rgba(93, 146, 216, 0.6);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
   color: #5d92d8;
-  font-size: 13px;
-  font-weight: 800;
-  line-height: 1;
-  animation: hintNudge 1.2s ease-in-out infinite;
-}
-
-.ko-theme .decision-card-hint-ripple {
-  position: absolute;
-  inset: -6px;
-}
-
-.ko-theme .decision-card-hint[data-reduce-motion="true"] .decision-card-hint-arrow {
-  animation: none;
-}
-
-.ko-theme .decision-card-hint[data-reduce-motion="true"] .decision-card-hint-ripple {
-  display: none;
-}
-
-@media (max-width: 640px) {
-  .ko-theme .decision-card-hint-label {
-    font-size: 9px;
-  }
-
-  .ko-theme .decision-card .decision-card-hint {
-    padding: 0.2rem 0.45rem;
-  }
-}
-
-@keyframes hintNudge {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(2px);
-  }
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 @keyframes twinkle {
