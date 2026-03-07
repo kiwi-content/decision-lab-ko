@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useToolFunnel } from "@/lib/use-tool-funnel";
 
 export default function ThrowAwayKo() {
@@ -10,6 +10,7 @@ export default function ThrowAwayKo() {
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const resultRef = useRef<HTMLDivElement>(null);
   const { trackInputCompletion, trackResultReached, resetFunnelProgress } = useToolFunnel("throw-away");
 
   const handleSubmit = async () => {
@@ -35,6 +36,7 @@ export default function ThrowAwayKo() {
 
       setResult(data.result);
       trackResultReached(data.result ?? "");
+      setTimeout(() => resultRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
     } catch {
       setError("네트워크 오류가 발생했습니다. 인터넷 연결을 확인해주세요.");
     } finally {
@@ -96,13 +98,13 @@ export default function ThrowAwayKo() {
           }}
         />
 
-        <button onClick={handleSubmit} className="lab-btn">결과 보기</button>
+        <button onClick={handleSubmit} disabled={!object || !story || loading} className="lab-btn">결과 보기</button>
 
         {loading && <p className="mt-4 text-sm font-semibold text-[#4f4762]">분석 중...</p>}
         {error && <p className="mt-4 text-sm font-semibold text-red-600">{error}</p>}
 
         {result && !loading && (
-          <div className="mt-6 space-y-3 rounded-2xl border border-black/10 bg-result-bg p-5 text-left">
+          <div ref={resultRef} className="mt-6 space-y-3 rounded-2xl border border-black/10 bg-result-bg p-5 text-left">
             <h2 className="display-font mb-1 text-3xl font-bold uppercase text-ink-heading">{decision}</h2>
             {reason && <p className="text-ink-result">{reason}</p>}
             {caution && <p className="border-l-2 border-result-border pl-3 text-sm text-result-caution">{caution}</p>}

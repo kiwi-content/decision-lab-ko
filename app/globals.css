@@ -123,8 +123,14 @@ body {
   transition: transform 160ms ease;
 }
 
-.lab-btn:hover {
+.lab-btn:hover:not(:disabled) {
   transform: translateY(-1px);
+}
+
+.lab-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .fade-in-up {

@@ -20,6 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return paths.map((path) => ({
     url: `${baseUrl}${path}`,
-    lastModified: new Date(),
+    lastModified: new Date("2026-03-07"),
   }));
 }

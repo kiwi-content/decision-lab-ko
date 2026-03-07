@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "./ko.css";
 
 export const metadata: Metadata = {
   title: {
@@ -15,5 +14,5 @@ export const metadata: Metadata = {
 };
 
 export default function KoreanLayout({ children }: { children: React.ReactNode }) {
-  return <div className="ko-theme">{children}</div>;
+  return <>{children}</>;
 }
