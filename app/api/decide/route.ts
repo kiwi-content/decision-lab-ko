@@ -1,9 +1,47 @@
 import { OpenAI } from "openai";
 import { NextResponse } from "next/server";
+import { isRateLimited } from "@/lib/rate-limit";
+
+const MAX_STORY_LENGTH = 2000;
+const ALLOWED_TOOLS = new Set([
+  "text-my-ex",
+  "quit-my-job",
+  "break-up",
+  "move",
+  "small-choices",
+  "throw-away",
+]);
 
 export async function POST(req: Request) {
   try {
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+      req.headers.get("x-real-ip") ??
+      "unknown";
+
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: "요청이 너무 많습니다. 잠시 후 다시 시도해주세요." },
+        { status: 429 },
+      );
+    }
+
     const { story, tool } = await req.json();
+
+    if (typeof story !== "string" || typeof tool !== "string") {
+      return NextResponse.json({ error: "잘못된 요청입니다." }, { status: 400 });
+    }
+
+    if (!ALLOWED_TOOLS.has(tool)) {
+      return NextResponse.json({ error: "지원하지 않는 도구입니다." }, { status: 400 });
+    }
+
+    if (story.length > MAX_STORY_LENGTH) {
+      return NextResponse.json(
+        { error: `입력은 ${MAX_STORY_LENGTH}자 이내로 작성해주세요.` },
+        { status: 400 },
+      );
+    }
 
     let systemPrompt = "";
 
@@ -74,18 +112,6 @@ export async function POST(req: Request) {
 3줄: 주의할 점 또는 부작용 1개
 4줄: 지금 5분 안에 실행할 수 있는 다음 행동 1개`;
     } else if (tool === "throw-away") {
-      systemPrompt = `당신은 정리 결정에 대한 구조화된 의사결정 시뮬레이터입니다.
-
-이 사람이 자신의 상황에 따라 물건을 버려야 하는지 평가하세요.
-
-고려할 점: 정서적 애착 vs 실질적 유용성, 지난 1년 동안의 사용 빈도, 차지하는 공간, 물건을 보관하는 것이 현재를 위하는 것인지 아니면 과거를 보존하려는 것인지 여부.
-
-정확히 4줄만 반환하세요 (다른 것은 없음):
-1줄: "보관하세요." / "30일 동안 보류하세요." / "버리세요." 중 정확히 하나
-2줄: 당신의 결정을 위한 가장 강력한 이유 (그들의 구체적인 상황 언급)
-3줄: 주의해야 할 구체적인 위험이나 주의사항 1개
-4줄: 오늘 중에 취할 수 있는 구체적인 실행 단계 1개`;
-    } else {
       systemPrompt = `당신은 정리 결정에 대한 구조화된 의사결정 시뮬레이터입니다.
 
 이 사람이 자신의 상황에 따라 물건을 버려야 하는지 평가하세요.

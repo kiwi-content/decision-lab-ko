@@ -12,6 +12,17 @@
   --accent-green: #91e5b3;
   --ink-soft: #1d2440;
   --ink-muted: #54607a;
+  --ink-body: #4f5e7c;
+  --ink-heading: #1a1627;
+  --ink-result: #413a52;
+  --brand-blue: #5d92d8;
+  --brand-nav: #6a89c4;
+  --panel-bg: #fffff5;
+  --hover-bg: #f3f9ff;
+  --result-bg: #f7f4fc;
+  --result-caution: #7a6890;
+  --result-border: #c0a8e0;
+  --result-action: #2a7d5c;
   --font-display: "Arial Black", "Avenir Next Condensed", "Trebuchet MS", sans-serif;
   --font-body: "Avenir Next", "Trebuchet MS", "Verdana", sans-serif;
 }
@@ -19,6 +30,18 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-nav: var(--brand-nav);
+  --color-accent-blue: var(--accent-blue);
+  --color-ink-body: var(--ink-body);
+  --color-ink-heading: var(--ink-heading);
+  --color-ink-result: var(--ink-result);
+  --color-panel-bg: var(--panel-bg);
+  --color-hover-bg: var(--hover-bg);
+  --color-result-bg: var(--result-bg);
+  --color-result-caution: var(--result-caution);
+  --color-result-border: var(--result-border);
+  --color-result-action: var(--result-action);
   --font-sans: var(--font-body);
   --font-mono: var(--font-body);
 }

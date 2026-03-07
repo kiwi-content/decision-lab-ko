@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getSiteUrl } from "@/lib/site-url";
 import CardClickHint from "./components/CardClickHint";
 import HeroLottie from "./components/HeroLottie";
+import MobileNav from "./components/MobileNav";
 import TrackedCardLink from "./components/TrackedCardLink";
 
 export const metadata: Metadata = {
@@ -58,7 +59,7 @@ export default function KoreanHome() {
       summary: "버틸까 떠날까 흔들린다면!",
       eta: "약 1분",
       bgClass: "bg-[#80caff]/30",
-      categoryClass: "text-[#5d92d8]",
+      categoryClass: "text-brand-blue",
     },
     {
       tool: "break-up",
@@ -141,39 +142,40 @@ export default function KoreanHome() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
       />
-      <section className="panel-shell mx-auto max-w-6xl bg-[#fffff5] px-6 py-7 sm:px-10 sm:py-10">
-        <header className="mb-10 flex flex-wrap items-center justify-between gap-4">
+      <section className="panel-shell mx-auto max-w-6xl bg-panel-bg px-6 py-7 sm:px-10 sm:py-10">
+        <header className="relative mb-10 flex flex-wrap items-center justify-between gap-4">
           <p className="rounded-full border border-[#80caff] bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#5884c8]">
             고민스탑
           </p>
-          <nav className="hidden items-center gap-2 text-xs font-semibold text-[#6a89c4] sm:flex sm:text-sm">
-            <Link href="/" className="rounded-full border border-[#80caff] bg-white px-4 py-2 hover:bg-[#f3f9ff]">
+          <nav className="hidden items-center gap-2 text-xs font-semibold text-brand-nav sm:flex sm:text-sm">
+            <Link href="/" className="rounded-full border border-[#80caff] bg-white px-4 py-2 hover:bg-hover-bg">
               홈
             </Link>
-            <Link href="#simulators" className="rounded-full border border-[#80caff] bg-white px-4 py-2 hover:bg-[#f3f9ff]">
+            <Link href="#simulators" className="rounded-full border border-[#80caff] bg-white px-4 py-2 hover:bg-hover-bg">
               시뮬레이터
             </Link>
-            <Link href="/methodology" className="rounded-full border border-[#80caff] bg-white px-4 py-2 hover:bg-[#f3f9ff]">
+            <Link href="/methodology" className="rounded-full border border-[#80caff] bg-white px-4 py-2 hover:bg-hover-bg">
               방법론
             </Link>
           </nav>
+          <MobileNav />
         </header>
 
         <div className="relative mb-6 fade-in-up sm:mb-8">
           <span className="sparkle right-8 top-2 hidden sm:block" />
           <span className="sparkle left-52 top-14 hidden sm:block" />
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#5d92d8] sm:mb-3">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-brand-blue sm:mb-3">
             결정 느림보들을 위해
           </p>
           <div className="hero-heading-wrap">
-            <h1 className="display-font text-[3.1rem] font-extrabold uppercase leading-[0.9] text-[#1d2440] sm:text-7xl lg:text-8xl">
+            <h1 className="display-font text-[3.1rem] font-extrabold uppercase leading-[0.9] text-foreground sm:text-7xl lg:text-8xl">
               대신
               <br />
               결정해 드립니다.
             </h1>
             <HeroLottie className="hero-heading-lottie" />
           </div>
-          <p className="mt-4 max-w-3xl text-base text-[#4f5e7c] sm:mt-6 sm:text-xl">
+          <p className="mt-4 max-w-3xl text-base text-ink-body sm:mt-6 sm:text-xl">
             &quot;짜장면이냐 짬뽕이냐&quot;, &quot;강릉여행이냐 부산여행이냐&quot; 인생은 선택의 연속
             <br />
             무엇을 선택해야 할지 막막할 때, 대신 선택해 드려요.
@@ -196,12 +198,12 @@ export default function KoreanHome() {
             >
               <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-10 w-10" />
               <p className={`mb-2 text-xs font-bold uppercase tracking-wider ${card.categoryClass}`}>{card.category}</p>
-              <h2 className="display-font text-4xl font-bold leading-tight text-[#1d2440]">{card.title}</h2>
+              <h2 className="display-font text-4xl font-bold leading-tight text-foreground">{card.title}</h2>
               <p className="mt-2 pr-8 text-sm text-[#33486f]">{card.summary}</p>
               <div className="decision-card-meta mt-4">
                 <span className="decision-card-time">{card.eta}</span>
                 <span className="decision-card-action">
-                  바로 진단 <span aria-hidden>→</span>
+                  바로 진단 <span aria-hidden="true">→</span>
                 </span>
               </div>
             </TrackedCardLink>
@@ -219,12 +221,12 @@ export default function KoreanHome() {
               >
                 <CardClickHint className="decision-card-hint pointer-events-none absolute right-4 top-4 h-10 w-10" />
                 <p className={`mb-2 text-xs font-bold uppercase tracking-wider ${card.categoryClass}`}>{card.category}</p>
-                <h2 className="display-font text-4xl font-bold text-[#1d2440]">{card.title}</h2>
+                <h2 className="display-font text-4xl font-bold text-foreground">{card.title}</h2>
                 <p className="mt-2 pr-8 text-sm text-[#33486f]">{card.summary}</p>
                 <div className="decision-card-meta mt-4">
                   <span className="decision-card-time">{card.eta}</span>
                   <span className="decision-card-action">
-                    바로 진단 <span aria-hidden>→</span>
+                    바로 진단 <span aria-hidden="true">→</span>
                   </span>
                 </div>
               </TrackedCardLink>
@@ -234,10 +236,10 @@ export default function KoreanHome() {
 
         <section className="relative mt-8 rounded-3xl border border-[#80caff]/50 bg-white/80 p-5 sm:p-7">
           <span className="ribbon-tag">NEW STORIES</span>
-          <h2 className="mb-1 text-4xl font-extrabold text-[#1d2440] sm:text-6xl">
+          <h2 className="mb-1 text-4xl font-extrabold text-foreground sm:text-6xl">
             그래! 결심했어
           </h2>
-          <p className="mb-4 text-sm font-semibold text-[#5d92d8]">이런 사연들, 이렇게 대신 정리해드려요</p>
+          <p className="mb-4 text-sm font-semibold text-brand-blue">이런 사연들, 이렇게 대신 정리해드려요</p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {고민사연들.map((item) => (
               <div
@@ -246,7 +248,7 @@ export default function KoreanHome() {
               >
                 <span className="sparkle right-3 top-3 h-3 w-3" />
                 <span className="absolute -top-2 left-4 h-3 w-3 rotate-45 border-l border-t border-[#cfe6ff] bg-[#f7fbff]" />
-                <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#5d92d8]">{item.title}</p>
+                <p className="mb-2 text-xs font-bold uppercase tracking-wider text-brand-blue">{item.title}</p>
                 <p className="mb-3 leading-relaxed text-[#3f5478]">&ldquo;{item.story}&rdquo;</p>
                 <div className="rounded-xl border border-[#b8f0cd] bg-[#eefff4] px-3 py-2 text-xs leading-relaxed text-[#1f6d4f]">
                   <span className="font-semibold">예시 응답:</span> {item.reply}
@@ -256,13 +258,13 @@ export default function KoreanHome() {
           </div>
         </section>
 
-        <footer className="mt-10 border-t border-[#80caff]/50 pt-5 text-xs text-[#6a89c4] sm:text-sm">
+        <footer className="mt-10 border-t border-[#80caff]/50 pt-5 text-xs text-brand-nav sm:text-sm">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <Link href="/about" className="underline decoration-[#80caff] underline-offset-2">소개</Link>
-            <Link href="/methodology" className="underline decoration-[#80caff] underline-offset-2">방법론</Link>
-            <Link href="/contact" className="underline decoration-[#80caff] underline-offset-2">문의</Link>
-            <Link href="/privacy" className="underline decoration-[#80caff] underline-offset-2">개인정보처리방침</Link>
-            <Link href="/terms" className="underline decoration-[#80caff] underline-offset-2">이용약관</Link>
+            <Link href="/about" className="underline decoration-accent-blue underline-offset-2">소개</Link>
+            <Link href="/methodology" className="underline decoration-accent-blue underline-offset-2">방법론</Link>
+            <Link href="/contact" className="underline decoration-accent-blue underline-offset-2">문의</Link>
+            <Link href="/privacy" className="underline decoration-accent-blue underline-offset-2">개인정보처리방침</Link>
+            <Link href="/terms" className="underline decoration-accent-blue underline-offset-2">이용약관</Link>
           </div>
         </footer>
       </section>

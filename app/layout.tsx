@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
+import { Gowun_Dodum } from "next/font/google";
 import Script from "next/script";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 import "./ko/ko.css";
+
+const gowunDodum = Gowun_Dodum({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const naverSiteVerification = process.env.NAVER_SITE_VERIFICATION;
 
@@ -28,7 +35,7 @@ export default function RootLayout({
 
   return (
     <html lang="ko">
-      <body className="ko-theme antialiased min-h-screen flex flex-col">
+      <body className={`ko-theme antialiased min-h-screen flex flex-col ${gowunDodum.className}`}>
         <Script
           src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.3/dist/dotlottie-wc.js"
           type="module"
