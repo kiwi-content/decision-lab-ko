@@ -126,25 +126,20 @@ export async function POST(req: Request) {
     }
 
     const client = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
+      apiKey: process.env.GEMINI_API_KEY,
+      baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/",
     });
 
-    const response = await client.responses.create({
-      model: process.env.OPENAI_MODEL || "gpt-4o-mini",
-      max_output_tokens: 1024,
-      input: [
-        {
-          role: "system",
-          content: [{ type: "input_text", text: systemPrompt }],
-        },
-        {
-          role: "user",
-          content: [{ type: "input_text", text: `상황:\n${story}` }],
-        },
+    const response = await client.chat.completions.create({
+      model: process.env.GEMINI_MODEL || "gemini-2.5-flash",
+      max_tokens: 1024,
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: `상황:\n${story}` },
       ],
     });
 
-    const result = response.output_text?.trim() || null;
+    const result = response.choices[0]?.message?.content?.trim() || null;
 
     if (!result) {
       return NextResponse.json({
